@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicia secion</title>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/loging.css' %}" rel="stylesheet" />
+</head>
+
+
+
+<body >
+
+
+    <main class="flex-shrink-0">
+
+        <!-- Nav-bar-->
+        <nav class="navbar navbar-expand-lg navbar-dark" id="nav_bar">
+            <div class="container px-5">
+                <a class="navbar-brand text-warning" href="/">Academia de Emprendimiento</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/course">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/contact">Contacto</a></li>
+                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link" href="/loging">Ingresa</a>
+                        </li>
+                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link"
+                                href="/registro">Registrate</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Nav-bar-->
+
+        <!----------------------- Main Container -------------------------->
+
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+
+            <!----------------------- Login Container -------------------------->
+
+            <div class="row border rounded-5 p-3 bg-white shadow box-area">
+
+                <!--------------------------- Left Box ----------------------------->
+                <div class="col-md-6 right-box">
+                    <div class="row align-items-center">
+                        <div class="header-text mb-4">
+                            <h2>Hola</h2>
+                            <p>Estas a un paso de tener la mejor asesoria.</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class=" text-center"> {{error}}</h3>
+                        </div>
+                        <form class="" action="/registro/" method="POST">
+                            {% csrf_token %}
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6" name="username"
+                                    maxlength="20" autocapitalize="none" autocomplete="username" autofocus=""
+                                    required="" id="id_username" placeholder="Usuario">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control form-control-lg bg-light fs-6"
+                                    name="password1" autocomplete="new-password" required="" id="id_password1"
+                                    placeholder="Contraseña">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control form-control-lg bg-light fs-6"
+                                    autocomplete="new-password" required="" id="id_password2" name="password2"
+                                    placeholder=" Confirmar Contraseña">
+                            </div>
+                           
+                            <div class="input-group mb-3">
+                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Ingresar</button>
+                            </div>
+
+                            <div class="row">
+                                <small>Ya tienes cuenta? <a class="link-primary" href="/loging">Iniciar sesion</a></small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <!-------------------- ------ Right Box ---------------------------->
+
+
+                <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+                    style="background: #103cbe;">
+                    <div class="featured-image mb-3">
+                        <img src="{% static 'image/loging.jpg' %}" class="img-fluid" style="width: 250px;">
+                    </div>
+                    <p class="text-white fs-2 text-center"
+                        style="font-family: 'Courier New', Courier, monospace; font-weight: 600;">Construye tu futuro emprendedor</p>
+                    <!-- <small class="text-white text-wrap text-center"
+                        style="width: 17rem;font-family: 'Courier New', Courier, monospace;">Join experienced
+                        Designers on
+                        this platform.</small> -->
+                </div>
+
+            </div>
+        </div>
+        <!----------------------- Main Container -------------------------->
+    </main>
+
+</body>
+
+</html>

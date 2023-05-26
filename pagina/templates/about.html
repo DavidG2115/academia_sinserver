@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Header-->
+<header class="py-5">
+    <div class="container px-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xxl-6">
+                <div class="text-center my-5">
+                    <h1 class="fw-bolder mb-3" style="text-align: center;">"Todas las realidades son virtuales, lo que
+                        importa es en cuál
+                        estás invirtiendo tu"</h1>
+                    <p class="lead fw-normal text-muted mb-4">Jason Silva</p>
+                    <!-- <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- About section one-->
+<section class="py-5 bg-light" id="scroll-target">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="text-center mb-5">
+                <h3 class="fw-bolder">Valores de nuestra empresa</h3>
+            </div>
+            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{% static 'image/motivacion.jpg' %}"
+                    alt="..." /></div>
+            <div class="col-lg-6">
+                <h2 class="fw-bolder">Motivación y compromiso</h2>
+                <p class="lead fw-normal text-muted mb-0" style="text-align: justify;">Nos comprometemos con las metas
+                    de nuestros
+                    estudiantes y les brindamos todo nuestro apoyo incondicional hasta que sean logradas con
+                    éxito.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About section two-->
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0"
+                    src="{% static 'image/compartir_cono.png' %}" alt="..." /></div>
+            <div class="col-lg-6">
+                <h2 class="fw-bolder">Compartir conocimiento</h2>
+                <p class="lead fw-normal text-muted mb-0" style="text-align: justify;">Utilizamos el valor de compartir
+                    conocimiento para
+                    incrementar el acceso a educación en el mundo y de esta forma contribuir a la transformación
+                    de las economías y las sociedades.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About section three-->
+<section class="py-5 bg-light" id="scroll-target">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="{% static 'image/honestidad.jpg' %}"
+                    alt="..." /></div>
+            <div class="col-lg-6">
+                <h2 class="fw-bolder">Honestidad</h2>
+                <p class="lead fw-normal text-muted mb-0" style="text-align: justify;">La honestidad es un valor clave
+                    para cualquier empresa
+                    de emprendimiento. Se trata de ser transparente y ético en todas las acciones y decisiones
+                    de la empresa. La honestidad es fundamental para mantener relaciones sólidas con los
+                    clientes, empleados y socios.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team members section-->
+<section class="py-5 bg-light">
+    <div class="container px-5 my-5">
+        <div class="text-center">
+            <h2 class="fw-bolder">Nuestro equipo</h2>
+            <p class="lead fw-normal text-muted mb-5">Dedicados a la calidad y a su éxito</p>
+        </div>
+        <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5 mb-5 mb-xl-0">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle mb-4 px-4" src="{% static 'image/toño.png' %}" alt="..." />
+                    <h5 class="fw-bolder">Antonio Villanueva</h5>
+                    <div class="fst-italic text-muted">Founder &amp; CEO</div>
+                </div>
+            </div>
+            <div class="col mb-5 mb-5 mb-xl-0">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle mb-4 px-4" src="{% static 'image/toño.png' %}" alt="..." />
+                    <h5 class="fw-bolder">Andrés Hernández</h5>
+                    <div class="fst-italic text-muted">CFO</div>
+                </div>
+            </div>
+            <div class="col mb-5 mb-5 mb-sm-0">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle mb-4 px-4" src="{% static 'image/toño.png' %}" alt="..." />
+                    <h5 class="fw-bolder">Gabriel Morales</h5>
+                    <div class="fst-italic text-muted">Operations Manager</div>
+                </div>
+            </div>
+            <div class="col mb-5">
+                <div class="text-center">
+                    <img class="img-fluid rounded-circle mb-4 px-4" src="{% static 'image/toño.png' %}" alt="..." />
+                    <h5 class="fw-bolder">Isabella Díaz</h5>
+                    <div class="fst-italic text-muted">CTO</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

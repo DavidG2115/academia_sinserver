@@ -1,0 +1,221 @@
+{% extends 'base.html' %}
+{% load static %}
+        {% block content %}
+        <section class="py-5">
+            <div class="container px-5 my-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-8 col-xl-6 mb-4 ">
+                        <div class="text-center">
+                            <h2 class="fw-bolder fs-1">Cursos</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/CURSO_1.jpg' %}" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="/marketing">
+                                    <h5 class="card-title mb-3">Marketing digital</h5>
+                                </a>
+                                <p class="card-text mb-0" style="text-align: justify;">El objetivo principal de un curso
+                                    de marketing digital para
+                                    vender es enseñar a los participantes cómo utilizar diferentes herramientas y
+                                    técnicas de marketing digital para aumentar las ventas de sus productos o servicios.
+                                </p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/CURSO_2.jpg' %}" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="/liderazgo">
+                                    <h5 class="card-title mb-3">Liderazgo empresarial</h5>
+                                </a>
+                                <p class="card-text mb-0 text-justify" style="text-align: justify;">Este tipo de curso
+                                    se centra en enseñar
+                                    habilidades de liderazgo empresarial, como la toma de decisiones efectiva, la
+                                    resolución de conflictos y la motivación del equipo. </p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/CURSO_3.jpg' %}" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Creación de empresas</h5>
+                                </a>
+                                <p class="card-text mb-0" style="text-align: justify;">Este tipo de curso se enfoca en
+                                    enseñar a los participantes
+                                    cómo iniciar y desarrollar una empresa desde cero. Los estudiantes aprenden sobre
+                                    planificación estratégica, análisis de mercado, financiamiento y gestión de recursos
+                                    humanos, entre otros temas clave.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- curso -->
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/Emprendimiento.jpg' %}" alt="..." />
+                            <div class="card-body p-5">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Emprendimiento</h5>
+                                </a>
+                                <p class="card-text mb-0" style="text-align: justify;">En este curso de emprendimiento
+                                    aprenderás acerca de los
+                                    fundamentos, los métodos y los procesos que permiten la formulación de una idea de
+                                    negocio. Es fácil de aprender y solo se requiere tener conocimientos elementales.
+                                </p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Curso -->
+                    <!-- curso -->
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/modelo_negocios.png' %}" alt="..." />
+                            <div class="card-body p-3">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Desarrollo de modelos de negocio efectivos.</h5>
+                                </a>
+                                <p class="card-text mb-0" style="text-align: justify;">Este tipo de curso se enfoca en
+                                    enseñar a los participantes
+                                    cómo iniciar y desarrollar una empresa desde cero. Los estudiantes aprenden sobre
+                                    planificación estratégica, análisis de mercado, financiamiento y gestión de recursos
+                                    humanos, entre otros temas clave.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Curso -->
+                    <!-- curso -->
+                    <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/CURSO_3.jpg' %}" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Creación de empresas</h5>
+                                </a>
+                                <p class="card-text mb-0" style="text-align: justify;">Este tipo de curso se enfoca en
+                                    enseñar a los participantes
+                                    cómo iniciar y desarrollar una empresa desde cero. Los estudiantes aprenden sobre
+                                    planificación estratégica, análisis de mercado, financiamiento y gestión de recursos
+                                    humanos, entre otros temas clave.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Curso -->
+                    <!-- curso -->
+                    <!-- <div class="col-lg-4 mb-5">
+                        <div class="card h-100 shadow border-0">
+                            <img class="card-img-top" src="{% static 'image/CURSO_3.jpg' %}" alt="..." />
+                            <div class="card-body p-4">
+                                <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div>
+                                <a class="text-decoration-none link-dark stretched-link" href="#!">
+                                    <h5 class="card-title mb-3">Creación de empresas</h5>
+                                </a>
+                                <p class="card-text mb-0" style="text-align: justify;">Este tipo de curso se enfoca en
+                                    enseñar a los participantes
+                                    cómo iniciar y desarrollar una empresa desde cero. Los estudiantes aprenden sobre
+                                    planificación estratégica, análisis de mercado, financiamiento y gestión de recursos
+                                    humanos, entre otros temas clave.</p>
+                            </div>
+                            <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                                <div class="d-flex align-items-end justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img class="rounded-circle me-3" src="{% static 'image/toño.png' %}" width="60px"
+                                            alt="..." />
+                                        <div class="small">
+                                            <div class="fw-bold">Proporcionado por:</div>
+                                            <div class="text-muted">Antonio Villanueva </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Curso -->
+
+                </div>
+            </div>
+        </section>
+    {% endblock %}
