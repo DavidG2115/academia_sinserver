@@ -22,7 +22,19 @@ def faq(request):
 
 # @login_required
 def course(request):
-    return render(request, "course.html")
+    cursos = Curso.objects.all()
+    data = {
+        'cursos' : cursos
+    }
+    return render(request, "course.html",data)
+
+def viewCurso(request, nombre, aprenderas):
+
+    return render(request, "viewCurso.html",{
+        "nombre": nombre,
+        "aprenderas" : aprenderas
+    
+    })
 
 def liderazgo(request):
     return render(request, "liderazgo.html")

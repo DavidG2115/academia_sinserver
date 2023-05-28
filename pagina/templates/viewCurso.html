@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<style>
+.embed-responsive .embed-responsive-item,
+.embed-responsive iframe,
+.embed-responsive embed,
+.embed-responsive object {
+  position: relative;
+  width: 100%;
+  height: 315px;
+}
+</style>
+
+<header class="bg-primary py-5">
+    <div class="container px-5 ">
+        <div class="row gx-5 align-items-center justify-content-center">
+            <div class="col-lg-8 col-xl-7 col-xxl-6">
+                <div class="my-5 text-center text-xl-start">
+                    <h1 class="display-5 fw-bolder text-white mb-2">{{nombre}}</h1>
+                    <p class="lead fw-normal text-white-50 mb-4">{{aprenderas}}</p>
+
+                </div>
+            </div>
+            <div class="col-xl-5 col-xxl-6  text-center">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <div><iframe width="560" height="315" src="https://www.youtube.com/embed/ABM5UJeILjo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="py-5">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-9">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Qué aprenderás</h1>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <p class="fs-5 text mb-4" style="text-align: justify;">{{aprenderas}}
+                        </p>
+                        <!-- <p class="fs-5 mb-4" style="text-align: justify;"> En consecuencia, en este curso de
+                            marketing digital aprenderás a: </p>
+                        <ul class="list-group fs-5 m-5">
+                            <li class="list m-1" style="text-align: justify;">Asimilar los fundamentos básicos
+                                del marketing y la publicidad.</li>
+                            <li class="list m-1" style="text-align: justify;">Entender cómo se emplean las redes
+                                sociales y las vías digitales para fomentar la comercialización de una marca.
+                            </li>
+                            <li class="list m-1" style="text-align: justify;">Identificar los procesos asociados
+                                a la formulación de un plan de marketing.</li>
+                            <li class="list m-1" style="text-align: justify;">Entender cómo se aplica el
+                                marketing digital en Facebook, Instagram, TikTok, Twitter, WhatsApp y Youtube.
+                            </li>
+                            <li class="list m-1" style="text-align: justify;">Aplicar una serie de estrategias
+                                orientadas a la comercialización de una marca por medio del marketing digital.
+                            </li>
+                        </ul> -->
+                    </section>
+                </article>
+            </div>
+    
+        </div>
+    </div>
+</section>
+<span>{{nombre}}</span>
+
+
+
+
+
+
+{% endblock %}

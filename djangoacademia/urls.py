@@ -1,6 +1,8 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from pagina import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -8,6 +10,7 @@ urlpatterns = [
     path('about/',views.about,name='about'),
     path('contact/',views.contact,name='contact'),
     path('course/',views.course,name='course'),
+    path('view/<nombre>/<aprenderas>',views.viewCurso, name="verCurso"),
     path('faq/',views.faq,name='faq'),
     path('liderazgo/',views.liderazgo,name='liderazgo'),
     path('marketing/',views.marketing,name='marketing'),
@@ -19,3 +22,6 @@ urlpatterns = [
 
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

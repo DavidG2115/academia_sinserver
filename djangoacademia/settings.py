@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'djangoacademia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'academia_6',
+        'NAME': 'academia_7',
         'USER': 'david',
         'PASSWORD': '123',
         'HOST': 'localhost',
@@ -135,7 +135,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-MEDIA_URL = 'images/'
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "images")
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)

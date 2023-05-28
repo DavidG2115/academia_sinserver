@@ -16,6 +16,10 @@ input {
   outline: none !important;
 }
 
+.precio{
+color: #f7edd5;
+font-size: large;
+}
 h1 {
   text-align: center;
   text-transform: uppercase;
