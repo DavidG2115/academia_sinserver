@@ -26,14 +26,19 @@ def course(request):
     data = {
         'cursos' : cursos
     }
+
     return render(request, "course.html",data)
 
-def viewCurso(request, nombre, aprenderas):
-
+def viewCurso(request, nombre, aprenderas,descripcionDentro,aprenderas2,aprenderas3,):
+    
     return render(request, "viewCurso.html",{
         "nombre": nombre,
-        "aprenderas" : aprenderas
-    
+        "aprenderas" : aprenderas,
+        "aprenderas2" : aprenderas2,
+        "aprenderas3" : aprenderas3,
+        "descripcionDentro" : descripcionDentro,
+        
+ 
     })
 
 def liderazgo(request):

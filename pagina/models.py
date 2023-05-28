@@ -8,9 +8,15 @@ class Curso(models.Model):
     imagen = models.ImageField(upload_to='media', null=True)
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField(null=True)
+    descripcionDentro = models.TextField(null=True)
+    video = models.TextField(null=True)
     consultor = models.CharField(max_length=100, null=True)
     imgconsultor = models.ImageField(upload_to='media', null=True)
     aprenderas = models.TextField(null=True)
+    aprenderas2 = models.TextField(null=True)
+    aprenderas3 = models.TextField(null=True)
+    aprenderas4 = models.TextField(blank=True)
+    
     
 
 
@@ -34,8 +40,8 @@ class Curso(models.Model):
 
 class Tema(models.Model): 
     
-    titulo = models.CharField(max_length=200)
+    unidad = models.CharField(max_length=200)
     descripcion = models.TextField()
-    project = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     def __str__(self):
-     return self.titulo
+     return self.unidad
