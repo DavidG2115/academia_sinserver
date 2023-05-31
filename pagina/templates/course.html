@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load embed_video_tags %}
+
 <link href="{% static 'css/style.css' %}" rel="stylesheet" />
 
 {% block content %}
@@ -20,11 +22,12 @@
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
                     
-                    <img class="card-img-top" src="{{ p.imagen.url }}"  />
+                    <img class="card-img-top" height="auto" src="{{ p.imagen.url }}"  />
                     
                     <div class="card-body p-4">
                         <!-- <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div> -->
-                        <a class="text-decoration-none link-dark stretched-link" href="{% url 'verCurso' p.nombre  p.aprenderas p.aprenderas2 p.aprenderas3 p.descripcionDentro%}">
+                        <a class="text-decoration-none link-dark stretched-link" href="{% url 'course_details' p.id %}">
+
                             <h5 class="card-title mb-3">{{ p.nombre}}</h5>
                         </a>
                         <p class="card-text mb-0" style="text-align: justify;">{{p.descripcion}}
@@ -56,3 +59,5 @@
     {% endif %}
 </section>
 {% endblock %}
+
+

@@ -1,5 +1,6 @@
 from typing import Any, Dict, Tuple
 from django.db import models
+from embed_video.fields import EmbedVideoField
 import os
 
 # Create your models here.
@@ -9,7 +10,7 @@ class Curso(models.Model):
     nombre = models.CharField(max_length=200)
     descripcion = models.TextField(null=True)
     descripcionDentro = models.TextField(null=True)
-    video = models.TextField(null=True)
+    video = EmbedVideoField(null=True)
     consultor = models.CharField(max_length=100, null=True)
     imgconsultor = models.ImageField(upload_to='media', null=True)
     aprenderas = models.TextField(null=True)

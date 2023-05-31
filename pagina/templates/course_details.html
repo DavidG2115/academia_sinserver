@@ -1,34 +1,19 @@
 {% extends 'base.html' %}
-{% load static %}
-
-{% load embed_video_tags %}
 
 {% block content %}
-
-<style>
-    .embed-responsive .embed-responsive-item,
-    .embed-responsive iframe,
-    .embed-responsive embed,
-    .embed-responsive object {
-        position: relative;
-        width: 100%;
-        height: 315px;
-    }
-</style>
-
-<header class="bg-primary py-5">
+<header class="py-5" id="nav_bar2">
     <div class="container px-5 ">
         <div class="row gx-5 align-items-center justify-content-center">
             <div class="col-lg-8 col-xl-7 col-xxl-6">
                 <div class="my-5 text-center text-xl-start">
-                    <h1 class="display-5 fw-bolder text-white mb-2">{{nombre}}</h1>
-                    <p class="lead fw-normal text-white-50 mb-4">{{descripcionDentro}}</p>
+                    <h1 class="display-5 fw-bolder text-white mb-2">{{ course.nombre }}</h1>
+                    <p class="lead fw-normal text-white-50 mb-4">{{ course.descripcion}}</p>
 
                 </div>
             </div>
             <div class="col-xl-5 col-xxl-6  text-center">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/16z28DjRTAA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="{{ course.video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -44,14 +29,13 @@
                     <header class="mb-4">
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">Qué aprenderás</h1>
-                        {{video}}
                     </header>
                     <!-- Post content-->
                     <section class="mb-5">
-                        <p class="fs-5 text mb-4" style="text-align: justify;">{{aprenderas}}
+                        <p class="fs-5 text mb-4" style="text-align: justify;">{{course.aprenderas}}
                         </p>
-                        <p class="fs-5 mb-4" style="text-align: justify;">{{aprenderas2}}</p>
-                        <p class="fs-5 mb-4" style="text-align: justify;">{{aprenderas3}}</p>                        
+                        <p class="fs-5 mb-4" style="text-align: justify;">{{course.aprenderas2}}</p>
+                        <p class="fs-5 mb-4" style="text-align: justify;">{{course.aprenderas3}}</p>                        
                     </section>
                 </article>
             </div>
@@ -59,11 +43,5 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
 
 {% endblock %}

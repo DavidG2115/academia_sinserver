@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Curso, Tema
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
@@ -29,14 +29,27 @@ def course(request):
 
     return render(request, "course.html",data)
 
-def viewCurso(request, nombre, aprenderas,descripcionDentro,aprenderas2,aprenderas3,):
-    
+def course_details_view(request, course_id):
+    course = get_object_or_404(Curso, id=course_id)
+    # Obtén información adicional o modelos relacionados para el curso
+    # Por ejemplo: course_extra_info = course.extrainfo_set.all()
+    context = {
+        'course': course,
+        # Pasa información adicional al contexto del template si es necesario
+        # 'extra_info': course_extra_info,
+    }
+    return render(request, 'course_details.html', context)
+
+# def viewCurso(request, nombre, aprenderas,descripcionDentro,aprenderas2,aprenderas3):    
     return render(request, "viewCurso.html",{
-        "nombre": nombre,
-        "aprenderas" : aprenderas,
-        "aprenderas2" : aprenderas2,
-        "aprenderas3" : aprenderas3,
-        "descripcionDentro" : descripcionDentro,
+        
+        # "nombre": nombre,
+        # # "video": video,
+        # "aprenderas" : aprenderas,
+        # "aprenderas2" : aprenderas2,
+        # "aprenderas3" : aprenderas3,
+        # "descripcionDentro" : descripcionDentro,
+        
         
  
     })

@@ -10,7 +10,7 @@ urlpatterns = [
     path('about/',views.about,name='about'),
     path('contact/',views.contact,name='contact'),
     path('course/',views.course,name='course'),
-    path('view/<nombre>/<aprenderas>/<aprenderas2>/<aprenderas3>/<descripcionDentro>',views.viewCurso, name="verCurso"),
+    # path('view/<nombre>/<aprenderas>/<aprenderas2>/<aprenderas3>/<descripcionDentro>/', views.viewCurso, name='verCurso'),
     path('faq/',views.faq,name='faq'),
     path('liderazgo/',views.liderazgo,name='liderazgo'),
     path('marketing/',views.marketing,name='marketing'),
@@ -19,6 +19,7 @@ urlpatterns = [
     path('privacidad/',views.privacidad,name='privacidad'),
     path('registro/',views.registro,name='registro'),
     path('compra/',views.compra,name='compra'),
+    path('curso/<int:course_id>/', views.course_details_view, name='course_details'),
 
 
 ]
