@@ -14,7 +14,8 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     latest_course = Curso.objects.latest('id')
     context = {
-        'latest_course': latest_course
+        'latest_course': latest_course,
+        'cursos': Curso.objects.all()
     }
     return render(request, "index.html",context)
 
