@@ -30,16 +30,8 @@ class Curso(models.Model):
     descripcionAmplia = models.TextField(null=True)
     video = EmbedVideoField(null=True)
     dirigido_a_1 = models.TextField(null=True)
-    dirigido_a_2 = models.TextField(null=True)
-    dirigido_a_3 = models.TextField(null=True)
-    dirigido_a_4 = models.TextField(blank=True)
     modulo = models.TextField(null=True)
-    modulo2 = models.TextField(null=True)
-    modulo3 = models.TextField(null=True)
-    modulo4 = models.TextField(blank=True)
-    modulo5 = models.TextField(blank=True)
-    modulo6 = models.TextField(blank=True)
-    modulo7 = models.TextField(blank=True)
+
     
     
     def delete(self, *args,**kwargs):

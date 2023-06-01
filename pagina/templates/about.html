@@ -52,14 +52,18 @@
         <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
             {% for mentore in mentores %}
             <div class="col mb-5 mb-5 mb-xl-0">
-                <div class="text-center">
-                    <img class="img-fluid rounded-circle mb-4 px-4" src="{{ mentore.imgconsultor.url }}" alt="{{ mentore.nombre }}" />
-                    <h5 class="fw-bolder">{{ mentore.nombre }}</h5>
-                    <div class="fst-italic text-muted">{{ mentore.descripcion_breve }}</div>
-                </div>
+                <a href="/mentor/{{ mentore.id }}" class="text-decoration-none">
+                    <div class="text-center">
+                        <img class="img-fluid rounded-circle mb-4 px-4" src="{{ mentore.imgconsultor.url }}" alt="{{ mentore.nombre }}" />
+                        <h5 class="fw-bolder text-dark animate-none">{{ mentore.nombre }}</h5>
+                        <div class="fst-italic text-muted">{{ mentore.descripcion_breve }}</div>
+                    </div>
+                </a>
             </div>
             {% endfor %}
         </div>
     </div>
 </section>
+
+
 {% endblock %}

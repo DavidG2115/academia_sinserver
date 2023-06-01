@@ -38,18 +38,13 @@
                     <!-- Post content-->
                     <section class="mb-5">
                         <ul>
-                            <li>
-                                <p class="fs-5 text mb-4" >{{ course.dirigido_a_1 }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.dirigido_a_2 }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.dirigido_a_3 }}</p>
-                            </li>
+                            {% for linea in dirigido_a_list %}
+                                <li><p class="fs-5 mb-4">{{ linea }}</p></li>
+                            {% endfor %}
                         </ul>
                     </section>
                 </article>
+
 
                 <article>
                     <!-- Post header-->
@@ -60,25 +55,9 @@
                     <!-- Post content-->
                     <section class="mb-5">
                         <ul>
-                            <li>
-                                <p class="fs-5 text mb-4" >{{ course.modulo }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.modulo2 }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.modulo3 }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.modulo4 }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.modulo5 }}</p>
-                            </li>
-                            <li>
-                                <p class="fs-5 mb-4" style="text-align: justify;">{{ course.modulo6 }}</p>
-                            </li>
-                           
+                            {% for linea in modulo_lines %}
+                                <li><p class="fs-5 mb-4">{{ linea }}</p></li>
+                            {% endfor %}
                         </ul>
                     </section>
                 </article>

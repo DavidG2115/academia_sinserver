@@ -39,11 +39,24 @@ def course(request):
 
     return render(request, "course.html",data)
 @login_required
+def detalle_mentor(request, mentor_id):
+    mentor = Mentore.objects.get(id=mentor_id)
+    descripcion_amplia = mentor.descripcion_amplia.split('\n')
+    context = {
+        'mentor': mentor,
+        'descripcion_amplia': descripcion_amplia
+    }
+    return render(request, 'detalle_mentor.html', context)
+
 def course_details_view(request, course_id):
     course = get_object_or_404(Curso, id=course_id)
-    
+    dirigido_a_list = course.dirigido_a_1.split('\n')
+    modulo_lines = course.modulo.split('\n')  # Dividir el contenido de modulo en líneas
+
     context = {
         'course': course,
+        'dirigido_a_list': dirigido_a_list,
+        'modulo_lines': modulo_lines,  # Agregar la lista de líneas de modulo al contexto
     }
     return render(request, 'course_details.html', context)
 
