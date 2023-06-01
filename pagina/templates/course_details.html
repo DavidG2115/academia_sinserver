@@ -9,17 +9,14 @@
             <div class="col-lg-8 col-xl-7 col-xxl-6">
                 <div class="my-5 text-center text-xl-start">
                     <h1 class="display-5 fw-bolder text-white mb-2">{{ course.titulo }}</h1>
-                    <p class="lead fw-normal text-white-50 mb-4">{{ course.descripcionBrebe}}</p>
+                    <p class="lead fw-normal text-white-50 mb-4">{{ course.descripcionBrebe }}</p>
                     <a class="btn btn-outline-warning btn-lg px-4" href="/compra">¡Quiero el curso!</a>
 
                 </div>
             </div>
             <div class="col-xl-5 col-xxl-6  text-center">
                 <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="560" height="315" src="{{ course.video }}" title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen></iframe>
+                    <iframe src="{{ course.video }}" width="auto" height="auto" allow="autoplay"></iframe>
                 </div>
             </div>
         </div>

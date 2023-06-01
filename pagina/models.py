@@ -28,7 +28,7 @@ class Curso(models.Model):
     imagen = models.ImageField(upload_to='media', null=True)
     descripcionBrebe = models.TextField(null=True)
     descripcionAmplia = models.TextField(null=True)
-    video = EmbedVideoField(null=True)
+    video = models.TextField(null=True)
     dirigido_a_1 = models.TextField(null=True)
     modulo = models.TextField(null=True)
     duracion = models.TextField(null=True)
