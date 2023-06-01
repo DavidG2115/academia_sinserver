@@ -20,95 +20,75 @@
 
     <main class="flex-shrink-0">
 
-        <!-- Nav-bar-->
-        <nav class="navbar navbar-expand-lg navbar-dark" id="nav_bar">
-            <div class="container px-5">
-                <a class="navbar-brand text-warning" href="/">Academia de Emprendimiento</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/about">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/course">Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contact">Contacto</a></li>
-                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link" href="/loging">Ingresa</a>
-                        </li>
-                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link"
-                                href="/registro">Registrate</a>
-                        </li>
 
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Nav-bar-->
+        <!----------------------- Main Container -------------------------->
 
-            <!----------------------- Main Container -------------------------->
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
 
-            <div class="container d-flex justify-content-center align-items-center min-vh-100">
+            <!----------------------- Login Container -------------------------->
 
-                <!----------------------- Login Container -------------------------->
+            <div class="row border rounded-5 p-3 bg-white shadow box-area">
 
-                <div class="row border rounded-5 p-3 bg-white shadow box-area">
+                <!--------------------------- Left Box ----------------------------->
 
-                    <!--------------------------- Left Box ----------------------------->
-
-                    <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
-                        style="background: #103cbe;">
-                        <div class="featured-image mb-3">
-                            <img src="{% static 'image/loging.jpg' %}" class="img-fluid" style="width: 250px;">
-                        </div>
-                        <p class="text-white fs-2"
-                            style="font-family: 'Courier New', Courier, monospace; font-weight: 600; text-align: center;">Convierte tus ideas en realidad</p>
-                        
+                <div class="col-md-6 rounded-4 d-flex justify-content-center align-items-center flex-column left-box"
+                    style="background: #103cbe;">
+                    <div class="featured-image mb-3">
+                        <img src="{% static 'image/loging.jpg' %}" class="img-fluid" style="width: 250px;">
                     </div>
+                    <p class="text-white fs-2"
+                        style="font-family: 'Courier New', Courier, monospace; font-weight: 600; text-align: center;">
+                        Convierte tus ideas en realidad</p>
 
-                    <!-------------------- ------ Right Box ---------------------------->
+                </div>
 
-                    <div class="col-md-6 right-box">
-                        <div class="row align-items-center">
-                            <div class="header-text mb-4">
-                                <h2>Hola</h2>
-                                <p>Estamos contentos de verte de nuevo.</p>
-                            </div>
-                            <div class="mb-4">
-                                
+                <!-------------------- ------ Right Box ---------------------------->
+
+                <div class="col-md-6 right-box">
+                    <div class="row align-items-center">
+                        <div class="header-text mb-4">
+                            <h2>Hola</h2>
+                            <p>Estamos contentos de verte de nuevo.</p>
+                        </div>
+                        <div class="mb-4">
+
                             <h3 class="text-center">{{error}}</h3>
-                            </div>
-                            <form class="" action="/loging/" method="POST">
-                                {% csrf_token %}
-
-                                <div class="mb-3">
-                                    <input type="text" class="form-control form-control-lg bg-light fs-6" name="username"
-                                        placeholder="Usuario">
-                                </div>
-                                <div class="mb-1">
-                                    <input type="password" class="form-control form-control-lg bg-light fs-6" name="password"
-                                        placeholder="Contraseña">
-                                </div>
-                                <div class="input-group mt-1 mb-5 d-flex justify-content-between">
-                                    <div class="forgot">
-                                        <small><a class="link-primary" href="#">Olvidaste la contraseña?</a></small>
-                                    </div>
-                                </div>
-                                <div class="input-group mb-3">
-                                    <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Ingresar</button>
-                                </div>
-                               
-                                <div class="row">
-                                    <small>No tienes cuenta? <a class="link-primary" href="/registro">Crea una</a></small>
-                                </div>
-                            </form>
                         </div>
-                    </div>
+                        <form class="" action="/loging/" method="POST">
+                            {% csrf_token %}
+                            {% if error_message %}
+                            <div class="text-danger">
+                                {{ error_message }}
+                            </div>
+                            {% endif %}
+                            <div class="mb-3">
+                                <input type="text" class="form-control form-control-lg bg-light fs-6" name="username"
+                                    placeholder="Usuario">
+                            </div>
+                            <div class="mb-1">
+                                <input type="password" class="form-control form-control-lg bg-light fs-6"
+                                    name="password" placeholder="Contraseña">
+                            </div>
+                            
+                            <div class="input-group mt-1 mb-5 d-flex justify-content-between">
+                                <div class="forgot">
+                                    <small><a class="link-primary" href="#">Olvidaste la contraseña?</a></small>
+                                </div>
+                            </div>
+                            <div class="input-group mb-3">
+                                <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Ingresar</button>
+                            </div>
+                            <div class="row">
+                                <small>No tienes cuenta? <a class="link-primary" href="/registro">Crea una</a></small>
+                            </div>
+                        </form>
 
+                    </div>
                 </div>
+
             </div>
-            <!----------------------- Main Container -------------------------->
+        </div>
+        <!----------------------- Main Container -------------------------->
     </main>
 
 </body>

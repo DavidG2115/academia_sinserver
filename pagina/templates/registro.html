@@ -20,33 +20,6 @@
 
     <main class="flex-shrink-0">
 
-        <!-- Nav-bar-->
-        <nav class="navbar navbar-expand-lg navbar-dark" id="nav_bar">
-            <div class="container px-5">
-                <a class="navbar-brand text-warning" href="/">Academia de Emprendimiento</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/about">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/course">Cursos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contact">Contacto</a></li>
-                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link" href="/loging">Ingresa</a>
-                        </li>
-                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link"
-                                href="/registro">Registrate</a>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Nav-bar-->
-
         <!----------------------- Main Container -------------------------->
 
         <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -68,29 +41,27 @@
                         </div>
                         <form class="" action="/registro/" method="POST">
                             {% csrf_token %}
-
-                            <div class="mb-3">
-                                <input type="text" class="form-control form-control-lg bg-light fs-6" name="username"
-                                    maxlength="20" autocapitalize="none" autocomplete="username" autofocus=""
-                                    required="" id="id_username" placeholder="Usuario">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control form-control-lg bg-light fs-6"
-                                    name="password1" autocomplete="new-password" required="" id="id_password1"
-                                    placeholder="Contraseña">
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" class="form-control form-control-lg bg-light fs-6"
-                                    autocomplete="new-password" required="" id="id_password2" name="password2"
-                                    placeholder=" Confirmar Contraseña">
-                            </div>
-                           
+                            
+                            {% for field in form %}
+                                <div class="mb-3">
+                                    {{ field.label_tag }}
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <div class="text-danger">
+                                            {% for error in field.errors %}
+                                                <span>{{ error }}</span><br>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            
                             <div class="input-group mb-3">
                                 <button type="submit" class="btn btn-lg btn-primary w-100 fs-6">Ingresar</button>
                             </div>
-
+                        
                             <div class="row">
-                                <small>Ya tienes cuenta? <a class="link-primary" href="/loging">Iniciar sesion</a></small>
+                                <small>¿Ya tienes cuenta? <a class="link-primary" href="/loging">Iniciar sesión</a></small>
                             </div>
                         </form>
                     </div>

@@ -2,14 +2,15 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Curso, Mentore
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
-from django.contrib import messages
+from .forms import CustomUserCreationForm, LoginForm
 from django.contrib.auth.decorators import login_required
+from .forms import CustomUserCreationForm
 
 
 # Create your views here.
-
 
 def index(request):
     latest_course = Curso.objects.latest('id')
@@ -18,17 +19,18 @@ def index(request):
         'cursos': Curso.objects.all()
     }
     return render(request, "index.html",context)
-
+@login_required
 def about(request):
-    return render(request, "about.html")
-
+    mentores = Mentore.objects.all()
+    return render(request, 'about.html', {'mentores': mentores})
+@login_required
 def contact(request):
     return render(request, "contact.html")
-
+@login_required
 def faq(request):
     return render(request, "faq.html")
 
-# @login_required
+@login_required
 def course(request):
     cursos = Curso.objects.all()
     data = {
@@ -36,7 +38,7 @@ def course(request):
     }
 
     return render(request, "course.html",data)
-
+@login_required
 def course_details_view(request, course_id):
     course = get_object_or_404(Curso, id=course_id)
     
@@ -52,25 +54,26 @@ def liderazgo(request):
 def marketing(request):
     return render(request, "marketing.html")
 
+
+def profile(request):
+    return render(request, 'profile.html')
+
 def loging(request):
-    if request.method == 'GET':
-        return render(request, 'loging.html', {
-            'form': AuthenticationForm
-        })
+    
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('home')  # Cambia 'home' por la URL a la que quieres redirigir después de iniciar sesión
+            else:
+                form.add_error(None, 'Nombre de usuario o contraseña incorrectos')
     else:
-
-        user = authenticate(
-            request, username=request.POST['username'], password=request.POST
-            ['password'])
-
-        if user is None:
-            return render(request, 'loging.html', {
-                'form': AuthenticationForm,
-                'error': 'Usuario o contraseña incorrecta'
-             })
-        else :
-            login(request,user)
-            return redirect('index')
+        form = LoginForm()
+    return render(request, 'loging.html', {'form': form})
 
 def terminos(request):
     return render(request, "terminos.html")
@@ -79,30 +82,15 @@ def privacidad(request):
     return render(request, "privacidad.html")
 
 def registro(request):
-    
-    if request.method == 'GET':
-        return render(request, 'registro.html', {
-            'form': UserCreationForm
-        })
-
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            # Realizar las acciones necesarias después de un registro exitoso
+            return redirect('login')
     else:
-        if request.POST['password1'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(username=request.POST['username'],
-                                                password=request.POST['password1'])
-                user.save()
-                login(request, user)
-                return redirect('index')
-            except :
-                return render(request, 'registro.html', {
-                    'form': UserCreationForm,
-                    'error': 'Usuario ya existe'
-                })
-        return render(request, 'registro.html', {
-            'form': UserCreationForm,
-        
-            'error': 'La contraseña no coincide'
-        })
+        form = CustomUserCreationForm()
+    return render(request, 'registro.html', {'form': form})
 
 def compra(request):
     return render(request, "compra.html")

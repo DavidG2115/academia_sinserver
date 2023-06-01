@@ -15,13 +15,23 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
 </head>
+<style>
+    .embed-responsive .embed-responsive-item,
+    .embed-responsive iframe,
+    .embed-responsive embed,
+    .embed-responsive object {
+        position: relative;
+        width: 100%;
+        height: 315px;
+    }
+</style>
 
 <body class="d-flex flex-column">
     <main class="flex-shrink-0">
         <!-- Nav-bar-->
         <nav class="navbar navbar-expand-lg navbar-dark" id="nav_bar">
             <div class="container px-5">
-                <a class="navbar-brand text-warning" href="/">Vivel</a>
+                <img src="{% static 'image/eo.png' %}" alt="Vivel Logo" class="img-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation"><span
@@ -33,26 +43,27 @@
                         <li class="nav-item"><a class="nav-link" href="/course">Cursos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/contact">Contacto</a></li>
                         <li class="nav-item"><a class="nav-link" href="/faq">FAQ</a></li>
-
-                        <!--                         
-                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link"
-                                href="/loging">Ingresa</a></li>
-                        <li class="nav-item btn btn-primary p-0 m-lg-1"><a class="nav-link"
-                                href="/registro">Registrate</a>
-                        </li> -->
-
                     </ul>
 
                     <div class="dropdown">
                         <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="profileDropdown"
                             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="bi bi-person-fill"></i> <!-- User icon -->
+                            {% if user.is_authenticated %}
+                            <span class="ms-2">{{ user.username }}</span>
+                            {% endif %}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="/loging">Iniciar Sesion</a></li>
-                            <li><a class="dropdown-item" href="/registro">Registrate</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="/logout">Cerrar Sesión</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="/loging">Iniciar Sesión</a></li>
+                            <li><a class="dropdown-item" href="/registro">Regístrate</a></li>
+                            {% endif %}
                         </ul>
                     </div>
+                    
+                    
 
             </div>
             </div>
