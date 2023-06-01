@@ -57,6 +57,9 @@ def course_details_view(request, course_id):
         'course': course,
         'dirigido_a_list': dirigido_a_list,
         'modulo_lines': modulo_lines,  # Agregar la lista de líneas de modulo al contexto
+        'duracion': course.duracion,  # Agregar el campo duracion al contexto
+        'modalidad': course.modalidad,  # Agregar el campo modalidad al contexto
+        'fecha_arranque': course.fechaArranque,
     }
     return render(request, 'course_details.html', context)
 

@@ -10,6 +10,7 @@
                 <div class="my-5 text-center text-xl-start">
                     <h1 class="display-5 fw-bolder text-white mb-2">{{ course.titulo }}</h1>
                     <p class="lead fw-normal text-white-50 mb-4">{{ course.descripcionBrebe}}</p>
+                    <a class="btn btn-outline-warning btn-lg px-4" href="/compra">¡Quiero el curso!</a>
 
                 </div>
             </div>
@@ -58,6 +59,22 @@
                             {% for linea in modulo_lines %}
                                 <li><p class="fs-5 mb-4">{{ linea }}</p></li>
                             {% endfor %}
+                        </ul>
+                    </section>
+                </article>
+
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-4">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">Más información</h1>
+                    </header>
+                    <!-- Post content-->
+                    <section class="mb-5">
+                        <ul>
+                            <li><p class="fs-5 mb-4">{{ duracion }}</p></li>
+                            <li><p class="fs-5 mb-4">{{ modalidad }}</p></li>
+                            <li><p class="fs-5 mb-4">{{ fecha_arranque }}</p></li>
                         </ul>
                     </section>
                 </article>

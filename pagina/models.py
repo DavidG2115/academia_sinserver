@@ -31,6 +31,11 @@ class Curso(models.Model):
     video = EmbedVideoField(null=True)
     dirigido_a_1 = models.TextField(null=True)
     modulo = models.TextField(null=True)
+    duracion = models.TextField(null=True)
+    modalidad = models.TextField(null=True)
+    fechaArranque = models.DateField(null=True)
+    # precio = models.DecimalField(max_digits=10, decimal_places=2)
+    
 
     
     
