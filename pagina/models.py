@@ -4,45 +4,49 @@ from embed_video.fields import EmbedVideoField
 import os
 
 # Create your models here.
-class Curso(models.Model):
+
     
-    imagen = models.ImageField(upload_to='media', null=True)
-    nombre = models.CharField(max_length=200)
-    descripcion = models.TextField(null=True)
-    descripcionDentro = models.TextField(null=True)
-    video = EmbedVideoField(null=True)
-    consultor = models.CharField(max_length=100, null=True)
+class Mentore(models.Model):
+    nombre = models.CharField(max_length=100, null=True)
     imgconsultor = models.ImageField(upload_to='media', null=True)
-    aprenderas = models.TextField(null=True)
-    aprenderas2 = models.TextField(null=True)
-    aprenderas3 = models.TextField(null=True)
-    aprenderas4 = models.TextField(blank=True)
+    descripcion_breve = models.TextField(null=True)
+    descripcion_amplia = models.TextField(null=True)
     
-    
-
-
     def __str__(self):
-     return self.nombre
- 
+      return self.nombre
+    
     def delete(self, *args,**kwargs):
-        if os.path.isfile(self.imagen.path):
-            os.remove(self.imagen.path)
-        super(Curso, self).delete(*args, **kwargs)
-        
+         if os.path.isfile(self.imgconsultor.path):
+             os.remove(self.imgconsultor.path)
+         super(Curso, self).delete(*args, **kwargs)
+         
+         
+class Curso(models.Model):
+    titulo = models.CharField(max_length=200)
+    descipcion = models.TextField()
+    mentor = models.ForeignKey(Mentore,on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to='media', null=True)
+    descripcionBrebe = models.TextField(null=True)
+    descripcionAmplia = models.TextField(null=True)
+    video = EmbedVideoField(null=True)
+    dirigido_a_1 = models.TextField(null=True)
+    dirigido_a_2 = models.TextField(null=True)
+    dirigido_a_3 = models.TextField(null=True)
+    dirigido_a_4 = models.TextField(blank=True)
+    modulo = models.TextField(null=True)
+    modulo2 = models.TextField(null=True)
+    modulo3 = models.TextField(null=True)
+    modulo4 = models.TextField(blank=True)
+    modulo5 = models.TextField(blank=True)
+    modulo6 = models.TextField(blank=True)
+    modulo7 = models.TextField(blank=True)
+    
+    
     def delete(self, *args,**kwargs):
-        if os.path.isfile(self.imgconsultor.path):
-            os.remove(self.imgconsultor.path)
-        super(Curso, self).delete(*args, **kwargs)
+         if os.path.isfile(self.imagen.path):
+             os.remove(self.imagen.path)
+         super(Curso, self).delete(*args, **kwargs)
             
-       
-    
-        
-        
-
-class Tema(models.Model): 
-    
-    unidad = models.CharField(max_length=200)
-    descripcion = models.TextField()
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
     def __str__(self):
-     return self.unidad
+       return self.titulo
+   

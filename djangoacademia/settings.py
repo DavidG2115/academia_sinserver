@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'djangoacademia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'academia_7',
+        'NAME': 'academia_3',
         'USER': 'david',
         'PASSWORD': '123',
         'HOST': 'localhost',

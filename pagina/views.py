@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Curso, Tema
+from .models import Curso, Mentore
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
@@ -10,6 +10,13 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
+def index(request):
+    latest_course = Curso.objects.latest('id')
+    context = {
+        'latest_course': latest_course
+    }
+    return render(request, "index.html",context)
 
 def about(request):
     return render(request, "about.html")
@@ -31,28 +38,12 @@ def course(request):
 
 def course_details_view(request, course_id):
     course = get_object_or_404(Curso, id=course_id)
-    # Obtén información adicional o modelos relacionados para el curso
-    # Por ejemplo: course_extra_info = course.extrainfo_set.all()
+    
     context = {
         'course': course,
-        # Pasa información adicional al contexto del template si es necesario
-        # 'extra_info': course_extra_info,
     }
     return render(request, 'course_details.html', context)
 
-# def viewCurso(request, nombre, aprenderas,descripcionDentro,aprenderas2,aprenderas3):    
-    return render(request, "viewCurso.html",{
-        
-        # "nombre": nombre,
-        # # "video": video,
-        # "aprenderas" : aprenderas,
-        # "aprenderas2" : aprenderas2,
-        # "aprenderas3" : aprenderas3,
-        # "descripcionDentro" : descripcionDentro,
-        
-        
- 
-    })
 
 def liderazgo(request):
     return render(request, "liderazgo.html")
@@ -114,6 +105,3 @@ def registro(request):
 
 def compra(request):
     return render(request, "compra.html")
-
-def index(request):
-    return render(request, "index.html")
