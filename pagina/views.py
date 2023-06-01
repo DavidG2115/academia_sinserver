@@ -14,11 +14,13 @@ from .forms import CustomUserCreationForm
 
 def index(request):
     latest_course = Curso.objects.latest('id')
+    username = request.session.get('username')
     context = {
         'latest_course': latest_course,
-        'cursos': Curso.objects.all()
+        'cursos': Curso.objects.all(),
+        'username': username
     }
-    return render(request, "index.html",context)
+    return render(request, "index.html", context)
 @login_required
 def about(request):
     mentores = Mentore.objects.all()
@@ -75,20 +77,23 @@ def profile(request):
     return render(request, 'profile.html')
 
 def loging(request):
-    
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            
             user = authenticate(request, username=username, password=password)
+            
             if user is not None:
+                # Autenticación exitosa, iniciar sesión
                 login(request, user)
-                return redirect('home')  # Cambia 'home' por la URL a la que quieres redirigir después de iniciar sesión
+                return redirect('index')  
             else:
                 form.add_error(None, 'Nombre de usuario o contraseña incorrectos')
     else:
         form = LoginForm()
+        
     return render(request, 'loging.html', {'form': form})
 
 def terminos(request):
@@ -101,12 +106,24 @@ def registro(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            # Realizar las acciones necesarias después de un registro exitoso
-            return redirect('login')
+            user = form.save()
+            
+            # Autenticar al usuario recién registrado
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                # Autenticación exitosa, iniciar sesión
+                login(request, user)
+                
+                # Realizar las acciones necesarias después de un registro exitoso
+                return redirect('index')
     else:
         form = CustomUserCreationForm()
+        
     return render(request, 'registro.html', {'form': form})
+
 
 def compra(request):
     return render(request, "compra.html")
