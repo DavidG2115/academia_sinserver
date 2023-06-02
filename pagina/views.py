@@ -21,18 +21,18 @@ def index(request):
         'username': username
     }
     return render(request, "index.html", context)
-@login_required
+
 def about(request):
     mentores = Mentore.objects.all()
     return render(request, 'about.html', {'mentores': mentores})
-@login_required
+
 def contact(request):
     return render(request, "contact.html")
-@login_required
+
 def faq(request):
     return render(request, "faq.html")
 
-@login_required
+
 def course(request):
     cursos = Curso.objects.all()
     data = {
@@ -40,7 +40,7 @@ def course(request):
     }
 
     return render(request, "course.html",data)
-@login_required
+
 def detalle_mentor(request, mentor_id):
     mentor = Mentore.objects.get(id=mentor_id)
     descripcion_amplia = mentor.descripcion_amplia.split('\n')

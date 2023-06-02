@@ -92,13 +92,13 @@
         </div>
         {% if cursos %}
         <div class="row gx-5">
-            {% for p in cursos %}
+            {% for p in cursos|slice:":3" %}
 
 
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
 
-                    <img class="card-img-top" height="auto" src="{{ p.imagen.url }}" />
+                    <img class="card-img-top" height="250" src="{{ p.imagen.url }}" />
 
                     <div class="card-body p-4">
                         <!-- <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div> -->

@@ -17,11 +17,11 @@
         {% if cursos %}
         <div class="row gx-5">
             {% for p in cursos %}
-            {% if forloop.first %}  <!-- Mostrar solo el primer curso (el último agregado) -->
+            
             <div class="col-lg-4 mb-5">
                 <div class="card h-100 shadow border-0">
 
-                    <img class="card-img-top" height="auto" src="{{ p.imagen.url }}" />
+                    <img class="card-img-top" height="250" src="{{ p.imagen.url }}" />
 
                     <div class="card-body p-4">
                         <!-- <div class="badge bg-primary bg-warning rounded-pill mb-2">Nuevo</div> -->
@@ -49,7 +49,6 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
             {% endfor %}
         </div>
         {% else %}
