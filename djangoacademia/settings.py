@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3))$y&=yfl-c#3e0=*gz4_3_ht7(@4nt9u+ri6*)ebaufowsr)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["68.183.122.79", "localhost", "127.0.0.1"]
 
@@ -124,12 +124,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 LOGIN_URL = '/loging'
 
-STATICFIELDS_DIRS = [
-    os.path.join(BASE_DIR / 'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
@@ -139,7 +139,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 MEDIA_URL = '/images/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, "images")
 
 JAZZMIN_SETTINGS = {
